@@ -27,7 +27,13 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-
+height = prompt ("Please enter a height between 1 and 23.")
+if (height < 1 || > 23) {
+  height = prompt ("Please enter a height between 1 and 23.")
+}
+else {
+  
+}
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
