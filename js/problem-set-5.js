@@ -27,13 +27,29 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-height = prompt ("Please enter a height between 1 and 23.")
-if (height < 1 || > 23) {
-  height = prompt ("Please enter a height between 1 and 23.")
+
+height = prompt ("Please enter a height between 1 and 23.");
+while (height <= 1 && height >= 23 && Number.isInteger(height))
+{
+height = prompt ("Please enter a height between 1 and 23.");
 }
-else {
-  
+{
+  for (var i = 1; i <= height; i++)
+{
+    var row = ''+1;
 }
+    for (var j = 1; j <= (height - i); j++)
+    {
+      row += ' ';
+    }
+
+    for (var k = 1; k <= i; k++)
+    {
+      row += '#';
+    }
+}
+var p = document.getElementById("mario-easy-output").innerHTML = (`${row}`);
+
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
