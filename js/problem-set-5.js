@@ -29,27 +29,23 @@ function mario() {
   // WRITE YOUR EXERCISE 1 CODE HERE
 
 height = prompt ("Please enter a height between 1 and 23.");
-while (height <= 1 && height >= 23 && Number.isInteger(height))
-{
-height = prompt ("Please enter a height between 1 and 23.");
-}
-{
-  for (var i = 1; i <= height; i++)
-{
-    var row = ''+1;
-}
-    for (var j = 1; j <= (height - i); j++)
-    {
-      row += ' ';
-    }
+do {
+  height = prompt ("Please enter a height between 1 and 23.");
+} while (height < 1 || height > 23)
+for (var i = 1; i <= height; i++) {
+  var row = '';
 
-    for (var k = 1; k <= i; k++)
-    {
-      row += '#';
-    }
-}
-var p = document.getElementById("mario-easy-output").innerHTML = (`${row}`);
+  for (var j = 1; j <= (height - i); j++) {
+    row += ' ';
+  }
 
+  for (var k = 1; k <= i; k++) {
+    row += '#';
+  }
+  console.log(row);
+}
+
+var p = document.getElementById("mario-easy-output").innerHTML = (`${row+<br/>}`);
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -84,7 +80,27 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
+  do {
+  height = prompt ("Please enter a height between 1 and 23.");
+  }
+  while (height <= 1 || height >= 23 && Number.isInteger(height))
+  "use strict";
+    for (var i = 1; i <= height; i++) {
+      var row = ''+1;
 
+      for (var j = 1; j <= (height - i); j++) {
+        row += ' ';
+      }
+
+      for (var k = 1; k <= i; k++) {
+        row += '#'+"#";
+      }
+
+      console.log(row);
+    }
+
+  mario(5);
+  var p = document.getElementById("mario-hard-output").innerHTML = (`${row}`);
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
