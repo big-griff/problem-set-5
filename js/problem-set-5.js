@@ -165,7 +165,7 @@ function credit() {
   let odds=0;
     let evens=0;
     while (true){
-      card=prompt("Mr. Thirsty needs YOUR help! All he needs is the number on the front of your parent's credit card!");
+      card=prompt("homogenous griff has encountered some fresh bitties and needs YOUR help! all he needs is the number on the front of your parent's credit card, the expiration month and year, and the groovy little number on the back!");
       if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
         break;
       }
@@ -294,7 +294,7 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-  windspeed=Number(prompt('enter your windspeed'));
+  windspeed=Number(prompt('THAR SHE BLOWS'));
     if (windspeed>=157){
       document.getElementById('hurricane-output').innerHTML='Category 5 Hurricane.';
     }
@@ -358,7 +358,23 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
-
+   let i=1;
+   	while(i<=6){
+   		let inputScore=Number(prompt("be honest dude just how horrible are you at gymnastics"));
+   		if (inputScore>=1 && inputScore<=10 && Number.isInteger(inputScore)){
+   			scores.push(inputScore);
+   		i++;
+   		}
+   	}
+   	scores.sort(function(a,b){return a-b;})
+   	let max=scores[5];
+   	let min=scores[0];
+   	let revisedScores=[];
+   	for(let j=1;j<5;j++){
+   		revisedScores.push(scores[j]);
+   	}
+   	let averageScore=((revisedScores[0]+revisedScores[1]+revisedScores[2]+revisedScores[3])/4).toFixed(2);
+   document.getElementById("gymnastics-output").innerHTML="Discarded: "+min+", "+max+"</br>Score: "+averageScore;
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
@@ -410,7 +426,42 @@ function reportCard() {
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+   while (true){
+   		let testsInput=prompt("the TESTS, veronica");
+   		if(testsInput==-1){
+   			break;
+   		}
+   		if(Number(testsInput)>=0 && Number(testsInput<=100)){
+   			testTotal=Number(testsInput)+testTotal;
+   			tests++;
+   		}
 
+   	}
+   	while(true){
+   		let quizInput=prompt("quizzes rise up");
+   		if (quizInput==-1){
+   			break;
+   		}
+   		if(Number(quizInput)>=0 && Number(quizInput)<=100){
+   			quizTotal=Number(quizInput)+quizTotal;
+   			quizzes++;
+   		}
+   	}
+   	while(true){
+   		let homeworkInput=prompt("plug me w/ that homework homie");
+   		if (homeworkInput==-1){
+   			break;
+   		}
+   		if(Number(homeworkInput)>=0 && Number(homeworkInput)<=100){
+   			homeworkTotal=Number(homeworkInput)+homeworkTotal;
+   			homeworks++;
+   		}
+   	}
+   	let testAverage=(testTotal/tests).toFixed(2);
+   	let quizAverage=(quizTotal/quizzes).toFixed(2);
+   	let homeworksAverage=(homeworkTotal/homeworks).toFixed(2);
+   	grade=(.6*testAverage+.3*quizAverage+.1*homeworksAverage).toFixed(2);
+   document.getElementById("report-card-output").innerHTML="Tests: "+testAverage+"</br>Quizzes: "+quizAverage+"</br>Homework: "+homeworksAverage+"</br>Grade: "+grade;
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
