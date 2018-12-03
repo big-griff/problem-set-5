@@ -172,10 +172,10 @@ function credit() {
     }
     for(let i=card.length-2;i>=0;i-=2) {
       let num=Number(card[i])*2;
-      let strnum=num.toString();
+      let sternum=num.toString();
       let sum=0;
-      for (let j=0;j<strnum.length;j++){
-        sum=sum+Number(strnum[j]);
+      for (let j=0;j<sternum.length;j++){
+        sum=sum+Number(sternum[j]);
       }
       evens=sum+evens;
       console.log(evens);
@@ -247,7 +247,7 @@ function guess() {
         if (number==guess){
           attempts++;
           winnar=true;
-          alert("Correct Answer!")
+          alert("guys we got em")
           document.getElementById('guess-output').innerHTML="Number: "+number+"</br>Attempts: "+attempts;
         }
         else if(guess>number){
@@ -358,6 +358,7 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+<<<<<<< HEAD
    let i=1;
    	while(i<=6){
    		let inputScore=Number(prompt("be honest dude just how horrible are you at gymnastics"));
@@ -375,6 +376,11 @@ function gymnastics() {
    	}
    	let averageScore=((revisedScores[0]+revisedScores[1]+revisedScores[2]+revisedScores[3])/4).toFixed(2);
    document.getElementById("gymnastics-output").innerHTML="Discarded: "+min+", "+max+"</br>Score: "+averageScore;
+=======
+let scores = prompt("what's the score, homie")
+let scores = Number(score)
+
+>>>>>>> 730eb3b60bcb2a652f38de3d2c9aed1f9c671689
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
   /////////////////////////////// DO NOT MODIFY
