@@ -27,25 +27,31 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+  while (true){
+      height=prompt("Please enter a VALID height, fam");
+      height=Number(height);
+      if(height>=1 && height<=23 && Number.isInteger(height)){
+        break;
+      };
+    };
+    let i=1;
+    let pound='#';
+    let lines="<code>";
+    let spaces=height-2;
 
-height = prompt ("Please enter a height between 1 and 23.");
-do {
-  height = prompt ("Please enter a height between 1 and 23.");
-} while (height < 1 || height > 23)
-for (var i = 1; i <= height; i++) {
-  var row = '';
+    while (i<=height){
+      let a='';
+      for(let j=0;j<=spaces;j++) {
+        a+='&nbsp;';
+      }
+      spaces--;
+      pound=pound+'#';
+      lines=lines+a+pound+"</br>";
+      i++;
+    }
+    document.getElementById("mario-easy-output").innerHTML=lines;
+  lines=lines+"</code>"
 
-  for (var j = 1; j <= (height - i); j++) {
-    row += ' ';
-  }
-
-  for (var k = 1; k <= i; k++) {
-    row += '#';
-  }
-  console.log(row);
-}
-
-var p = document.getElementById("mario-easy-output").innerHTML = (`${row+<br/>}`);
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -80,27 +86,30 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
-  do {
-  height = prompt ("Please enter a height between 1 and 23.");
-  }
-  while (height <= 1 || height >= 23 && Number.isInteger(height))
-  "use strict";
-    for (var i = 1; i <= height; i++) {
-      var row = ''+1;
-
-      for (var j = 1; j <= (height - i); j++) {
-        row += ' ';
-      }
-
-      for (var k = 1; k <= i; k++) {
-        row += '#'+"#";
-      }
-
-      console.log(row);
+  while (true){
+    height=prompt("provide desired height");
+    height=Number(height);
+    if(height>=1 && height<=23 && Number.isInteger(height)){
+      break;
+    };
+  };
+  let i=1;
+  let pound='#';
+  let lines="<code>";
+  let spaces1=height-2;
+  let spaces2='&nbsp'+'&nbsp';
+  while (i<=height){
+    let a='';
+    for(let j=0;j<=spaces1;j++) {
+      a+='&nbsp;';
     }
-
-  mario(5);
-  var p = document.getElementById("mario-hard-output").innerHTML = (`${row}`);
+    spaces1--;
+    pound=pound+'#';
+    lines=lines+a+pound+spaces2+pound+"</br>";
+    i++;
+  }
+  document.getElementById("mario-hard-output").innerHTML=lines;
+lines=lines+"</code>"
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
@@ -153,7 +162,43 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
+  let odds=0;
+    let evens=0;
+    while (true){
+      card=prompt("Mr. Thirsty needs YOUR help! All he needs is the number on the front of your parent's credit card!");
+      if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
+        break;
+      }
+    }
+    for(let i=card.length-2;i>=0;i-=2) {
+      let num=Number(card[i])*2;
+      let strnum=num.toString();
+      let sum=0;
+      for (let j=0;j<strnum.length;j++){
+        sum=sum+Number(strnum[j]);
+      }
+      evens=sum+evens;
+      console.log(evens);
+    }
+    for(let k=card.length-1; k>=0;k-=2){
+      odds=odds+Number(card[k])
+    }
+    console.log(odds);
 
+    if (card.length==15 && (card[0]==3 &&(card[1]==7 || card[1]==4)) && (odds+evens)%10==0){
+      document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
+    }
+    else if ((card.length==13 || card.length==16) && card[0]==4 && (odds+evens)%10==0){
+      document.getElementById("credit-output").innerHTML="<img src ='./images/visa.png'/>";
+    }
+    else if (card.length==16 && (card[0]==5 && (card[1]==1 || card[1]==2 || card[1]==4 || card[1]==5)) && (odds+evens)%10==0){
+      document.getElementById("credit-output").innerHTML="<img src ='./images/mastercard.png'/>";
+    }
+    else {
+      document.getElementById("credit-output").innerHTML="<img src ='./images/invalid.png'/>";
+    }
+
+  card=Number(card);
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -192,7 +237,29 @@ function credit() {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
-
+  let number=Math.floor(Math.random()*999)+1;
+    let attempts=0;
+    let winnar = false;
+    while (winnar==false) {
+      let guess=prompt('how many fingers am I holding up')
+      if(guess>=1 && guess<=1000 && Number.isInteger(Number(guess))){
+        console.log("1");
+        if (number==guess){
+          attempts++;
+          winnar=true;
+          alert("Correct Answer!")
+          document.getElementById('guess-output').innerHTML="Number: "+number+"</br>Attempts: "+attempts;
+        }
+        else if(guess>number){
+          attempts++;
+          alert("you're off the mark boss")
+        }
+        else if(guess<number){
+          attempts++;
+          alert("nope too low chief")
+        }
+      }
+  }
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -211,7 +278,7 @@ function guess() {
  *   - Category 1: 74-95
  *   - Tropical Storm: 39-73
  *
- * Windspeeds must be non-negative integers in the range [0, INF), and
+ * windspeeds must be non-negative integers in the range [0, INF), and
  * users should be continuously re-prompted until they comply with this
  * restriction.
  *
@@ -227,7 +294,28 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-
+  windspeed=Number(prompt('enter your windspeed'));
+    if (windspeed>=157){
+      document.getElementById('hurricane-output').innerHTML='Category 5 Hurricane.';
+    }
+    else if (windspeed>=130){
+      document.getElementById('hurricane-output').innerHTML='Category 4 Hurricane.';
+    }
+    else if (windspeed>=111){
+      document.getElementById('hurricane-output').innerHTML='Category 3 Hurricane.';
+    }
+    else if (windspeed>=96){
+      document.getElementById('hurricane-output').innerHTML='Category 2 Hurricane.';
+    }
+    else if (windspeed>=74){
+      document.getElementById('hurricane-output').innerHTML='Category 1 Hurricane.';
+    }
+    else if (windspeed>=39){
+      document.getElementById('hurricane-output').innerHTML='Tropical Storm.';
+    }
+    else if (windspeed<=38){
+      document.getElementById('hurricane-output').innerHTML='The skies are calm...';
+  }
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
