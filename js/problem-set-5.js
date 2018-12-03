@@ -165,17 +165,17 @@ function credit() {
   let odds=0;
     let evens=0;
     while (true){
-      card=prompt("Mr. Thirsty needs YOUR help! All he needs is the number on the front of your parent's credit card!");
+      card=prompt("homogenous griff has encountered some fresh bitties and needs YOUR help! all he needs is the number on the front of your parent's credit card, the expiration month and year, and the groovy little number on the back!");
       if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
         break;
       }
     }
     for(let i=card.length-2;i>=0;i-=2) {
       let num=Number(card[i])*2;
-      let strnum=num.toString();
+      let sternum=num.toString();
       let sum=0;
-      for (let j=0;j<strnum.length;j++){
-        sum=sum+Number(strnum[j]);
+      for (let j=0;j<sternum.length;j++){
+        sum=sum+Number(sternum[j]);
       }
       evens=sum+evens;
       console.log(evens);
@@ -247,7 +247,7 @@ function guess() {
         if (number==guess){
           attempts++;
           winnar=true;
-          alert("Correct Answer!")
+          alert("guys we got em")
           document.getElementById('guess-output').innerHTML="Number: "+number+"</br>Attempts: "+attempts;
         }
         else if(guess>number){
@@ -294,7 +294,7 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-  windspeed=Number(prompt('enter your windspeed'));
+  windspeed=Number(prompt('THAR SHE BLOWS'));
     if (windspeed>=157){
       document.getElementById('hurricane-output').innerHTML='Category 5 Hurricane.';
     }
@@ -358,6 +358,8 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+let scores = prompt("what's the score, homie")
+let scores = Number(score)
 
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
